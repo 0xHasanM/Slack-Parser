@@ -89,11 +89,10 @@ if __name__ == '__main__':
                 print("Please Enter a valid Slack Database")
                 exit()
         while 1:
-                try:
                         function_name = input("Insert the data you want (users, messages, workspace): ")
                         if function_name == "users":
                                 eval(function_name + "(data)")
-                        else:
+                        elif function_name in ["users", "messages","workspace","exit"]:
                                 eval(function_name + "(strings)")
-                except:
-                        print("Error occurred Try-Again")
+                        else:
+                                print("Error occurred Try-Again")
