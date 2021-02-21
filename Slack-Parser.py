@@ -82,11 +82,18 @@ if __name__ == '__main__':
   ____) | | (_| | (__|   <       | |  | (_| | |  \__ \  __/ |   
  |_____/|_|\__,_|\___|_|\_\      |_|   \__,_|_|  |___/\___|_|     
                                                 By: 0xMohammed''')
-        indexeddb = input("Insert Slack Database Path (%appdata%\\Slack\\IndexedDB\\https_app.slack.com_0.indexeddb.blob\\1\\00): ")
-        strings, data = data(indexeddb)
+        try:
+                indexeddb = input("Insert Slack Database Path (%appdata%\\Slack\\IndexedDB\\https_app.slack.com_0.indexeddb.blob\\*): ")
+                strings, data = data(indexeddb)
+        except:
+                print("Please Enter a valid Slack Database")
+                exit()
         while 1:
-                function_name = input("Input the data you want (users, messages, workspace): ")
-                if function_name == "users":
-                        eval(function_name + "(data)")
-                else:
-                        eval(function_name + "(strings)")
+                try:
+                        function_name = input("Insert the data you want (users, messages, workspace): ")
+                        if function_name == "users":
+                                eval(function_name + "(data)")
+                        else:
+                                eval(function_name + "(strings)")
+                except:
+                        print("Error occurred Try-Again")
